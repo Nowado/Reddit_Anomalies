@@ -12,6 +12,10 @@ reddit = praw.Reddit(client_id='sUgT5bpF6GiuLg',
 
 def sub2comms(subname):
     final_dic={}
+    try:
+        reddit.subreddit(subname).quaran.opt_in()
+    except:
+        pass
     for submission in reddit.subreddit(subname).hot(limit=1000):
         print(submission.id)
         final_dic[submission.title]=thread2comments(submission.id)
