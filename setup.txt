@@ -1,0 +1,1 @@
+{"credentials": {"client_id": "CLIENT_ID", "client_secret": "SECRET", "user_agent": "Chrome:none:v.01 (by /u/USERNAME)", "username": "USERNAME", "password": "PASSWORD"}, "subreddits": ["TerriblePlace"]}
