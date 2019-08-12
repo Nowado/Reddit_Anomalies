@@ -10,17 +10,6 @@ reddit = praw.Reddit(client_id='sUgT5bpF6GiuLg',
                      username='Slight_Hunter',
                      password='Slight_Hunter_')
 
-def sub2comms(subname):
-    final_dic={}
-    try:
-        reddit.subreddit(subname).quaran.opt_in()
-    except:
-        pass
-    for submission in reddit.subreddit(subname).hot(limit=1000):
-        print(submission.id)
-        final_dic[submission.title]=thread2comments(submission.id)
-    return final_dic
-
 def thread2comments(thread_id):
     thread=reddit.submission(id=thread_id)
     return extract_comments(thread.comments)
@@ -36,6 +25,16 @@ def extract_comments(comm_tree, min_size=3):
             comm_dic[comment.id]=comment.body
     return comm_dic
 
+def sub2comms(subname):
+    final_dic={}
+    try:
+        reddit.subreddit(subname).quaran.opt_in()
+    except:
+        pass
+    for submission in reddit.subreddit(subname).hot(limit=1000):
+        print(submission.id)
+        final_dic[submission.title]=thread2comments(submission.id)
+    return final_dic
 
 with open('setup.txt') as f:
     setup = json.load(f)
