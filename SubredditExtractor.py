@@ -1,7 +1,6 @@
 import praw
 import requests
 import datetime
-import inspect
 import json
 
 reddit = praw.Reddit(client_id='sUgT5bpF6GiuLg',
